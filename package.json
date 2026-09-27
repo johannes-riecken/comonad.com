@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "python3 -m http.server 4173 --bind 127.0.0.1 --directory dist",
     "build": "python3 tools/build.py && npm run build:articles",
-    "test": "node tests/wasm.mjs && node tests/figures.mjs && node tests/png.mjs",
+    "test": "node tests/wasm.mjs && node tests/figures.mjs && node tests/png.mjs && node tests/contour.mjs",
     "build:articles": "node tools/build-articles.mjs",
     "test:articles": "node tests/articles.mjs",
     "import:haskell": "node tools/import-haskell.mjs",

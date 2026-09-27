@@ -115,4 +115,4 @@ const vrPage=parseHTML(fs.readFileSync('dist/reader/talks/vr-test-framework-2016
 assert.ok(vrPage.querySelector('a[href="https://github.com/ekmett/vr"]'));
 assert.ok(vrPage.querySelector('.talk-video figcaption').textContent.includes('1 minute'));
 assert.ok(!vrPage.querySelector('.talk-video figcaption').textContent.includes('1 minutes'));
-assert.equal(doc.querySelectorAll('.archive-entry[data-kind="Demo"]').length,2);
+assert.equal(doc.querySelectorAll('.archive-entry[data-kind="Demo"]').length,3);

@@ -52,6 +52,8 @@ summary{cursor:pointer}.contents ol{columns:2;padding-left:24px;line-height:1.8;
 .automaton-controls input { width:5rem; }
 .automaton-controls input,.automaton-controls select { padding:.4rem; background:white; border:1px solid #b9c2b8; border-radius:3px; color:inherit; }
 .automaton canvas { width:100%; height:auto; image-rendering:pixelated; }
+.contour-demo canvas { display:block; width:100%; max-width:640px; height:auto; aspect-ratio:1; background:var(--paper); border:1px solid var(--line); border-radius:3px; image-rendering:auto; }
+.contour-demo .automaton-controls input[type=checkbox] { width:auto; padding:0; accent-color:var(--accent); }
 
 .package-links { margin: 1.8rem 0; padding: .85rem 0; border-top: 1px solid var(--line, #dce0d8); font-size: .85rem; line-height: 1.9; }
 .package-links > span { color: var(--muted, #53616a); margin-right: .5em; }

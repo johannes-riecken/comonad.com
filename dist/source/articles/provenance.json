@@ -1,5 +1,26 @@
 [
   {
+    "slug": "two-d-contouring",
+    "title": "2D Contouring",
+    "date": "2026-09-27",
+    "dateLabel": "27 September 2026",
+    "path": "reader/2026/two-d-contouring/",
+    "categories": "Graphics · Haskell",
+    "origin": "https://comonad.com/reader/2026/two-d-contouring/",
+    "author": "Matt Keeter",
+    "source": "Matt Keeter",
+    "rawSource": "TwoDContouring.hs",
+    "rawFormat": "hs",
+    "dateBasis": "Browser companion added 27 September 2026 for the contouring program in the repository. The algorithm is Matt Keeter’s 2D contouring write-up. This is not a historical Comonad.Reader post.",
+    "editionNote": "A new browser companion. The quadtree, marching squares, and dual walk follow TwoDContouring.hs. Feature rows are the intersection normals, because fromRows pts sends a rectangle corner outside its cell. The singular-value step is pure Haskell so the module can target wasm32-wasi.",
+    "rightsNote": "Contouring algorithm and original Haskell © Matt Keeter.",
+    "datePublished": "2026-09-27",
+    "retrieved": "2026-09-27",
+    "kind": "Demo",
+    "sha256": "db805cc9e2041b2fccffb27740fe77aea9910758c7f2f5bb298060b3621ae8ab",
+    "archive": "source/articles/two-d-contouring.original.html.txt"
+  },
+  {
     "slug": "internalized-guarded-recursion-for-equational-reasoning",
     "title": "Internalized Guarded Recursion for Equational Reasoning",
     "date": "2022-10-21",

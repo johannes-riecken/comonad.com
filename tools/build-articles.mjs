@@ -120,6 +120,8 @@ fs.cpSync('node_modules/katex/dist/fonts', 'dist/vendor/katex/fonts', {recursive
 fs.cpSync('content/figures', 'dist/figures', {recursive:true});
 buildQuine();
 fs.cpSync('content/assets', 'dist/assets', {recursive:true});
+fs.copyFileSync('TwoDContouring.hs', 'dist/source/TwoDContouring.hs');
+fs.copyFileSync('haskell/ContourDemo.hs', 'dist/source/ContourDemo.hs');
 for(const asset of importedAssets.filter(a=>a.path && new URL(a.url).hostname==='comonad.com')) {
   const target=new URL(asset.url).pathname.slice(1);
   if(!target.split('/').includes('..')) write('dist/'+target,fs.readFileSync('content/'+asset.path));
@@ -186,6 +188,7 @@ function renderArticle(article, route = article.path) {
   source = source.replace(/<!-- demo:(png-automaton|topology-automaton|mandelbrot) -->/g, (_,name)=>read(`templates/${name}.html`).replaceAll('{{root}}',root));
   source = source.replace(/<!-- demo:(binding|morton|ad|lca) -->/g, (_, name) => read(`templates/${name}.html`).replaceAll('{{root}}', root));
   source = source.replace('<!-- demo:automaton -->', read('templates/automaton.html').replace('../../../../source/',root+'source/'));
+  source = source.replace('<!-- demo:contour -->', read('templates/contour.html').replaceAll('{{root}}', root));
   source = source.replace(/<!-- demo:(split|tree) -->/g, (_, name) => {
     if (name === 'split') return read('templates/crc-split.html');
     const proof = String.raw`\begin{aligned}
@@ -260,7 +263,7 @@ ${navigation.neighbors(article,root)}
   const series=collections.find(c=>c.slug===article.series);
   const seriesNav=series ? `<nav class="series-navigation" aria-label="Article series"><p>In <a href="${root+series.path}">${esc(series.title)}</a></p><ol>${series.links.map(link=>articles.find(a=>sourceKey(a.origin)===sourceKey(link.origin))).filter(Boolean).map(a=>`<li><a href="${root+a.path}"${a.slug===article.slug?' aria-current="page"':''}>${esc(a.seriesTitle||a.originalTitle||a.title)}</a></li>`).join('')}</ol></nav>` : '';
   const main = `<header class="article-header"><div class="article-meta"><span>${esc(article.categories)}</span><span>${esc(article.author || 'Edward Kmett')} · <time datetime="${article.date}">${article.dateLabel}</time></span></div><h1>${esc(article.title)}</h1></header>${seriesNav}${headings.length?toc:''}${body}${packageLine(packageNames(packageCatalog,article.slug),root)}${companions}${comments}${footer}`;
-  const script = hasQuineDemo ? `<script type="module" src="${root}quine-demo.js"></script>` : hasPNGDemo ? `<script type="module" src="${root}png-demos.js"></script>` : hasInlineDemo ? `<script type="module" src="${root}article-demos.js"></script>` : article.slug === 'parallel-crc' ? `<script type="module" src="${root}app.js"></script>` : article.slug==='cellular-automata-part-1' ? `<script type="module" src="${root}automaton.js"></script>` : '';
+  const script = hasQuineDemo ? `<script type="module" src="${root}quine-demo.js"></script>` : hasPNGDemo ? `<script type="module" src="${root}png-demos.js"></script>` : hasInlineDemo ? `<script type="module" src="${root}article-demos.js"></script>` : article.slug === 'parallel-crc' ? `<script type="module" src="${root}app.js"></script>` : article.slug==='cellular-automata-part-1' ? `<script type="module" src="${root}automaton.js"></script>` : article.slug==='two-d-contouring' ? `<script type="module" src="${root}contour.js"></script>` : '';
   write('dist/' + route + 'index.html', shell({title:article.title, base:root, main, script, date:article.date,route,entry:article}));
 }
 

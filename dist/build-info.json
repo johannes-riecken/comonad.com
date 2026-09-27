@@ -1,12 +1,13 @@
 {
   "compiler": "GHC 9.14.1.20260731",
   "target": "wasm32-wasi",
-  "wasm_bytes": 2153185,
-  "wasm_sha256": "50ab73711c91e1e5c82947583f47477a27c0710167f80b0c716970159db75f5d",
+  "wasm_bytes": 2260997,
+  "wasm_sha256": "56045c7f2da0650d574890ebddba688e00f3a55b5898c564c333bd480a97eef5",
   "source_sha256": {
-    "Browser.hs": "4c99d81573b6456d86b97895c485a936dcc4919143ad7d2806b7162c8ded4927",
+    "Browser.hs": "17c1f8884f36630c3b8ad65540e12386bad6c1ded768f781cd46adf50e30213d",
     "Automaton.hs": "0ee350a757ab8fc33ce3535d6c21661e42426bf606e3892ecf7a25d8f4654946",
     "BindingDemo.hs": "2acc34d56d5f66be977ea00fce4216e4703f12288c5c88bdb3e295b18786e11a",
+    "ContourDemo.hs": "dc47d6c44b03905b45f66324914d85bc6b8cdc02373e0c93a033c3e3a6209012",
     "CRC.hs": "51024e167fb5119c66053c13208ed88b088058a0ebbc2d65d0867cf185c9c67e",
     "Server.hs": "0e4417e6f8b8da6173e608861d3901e84816888816800b49cf0588def993f295",
     "ADDemo.hs": "7d2e86a39866b720b211e49de2fb318755f20ddff27a8855fa1b06b182f1e707",
@@ -30,6 +31,7 @@
     "binding_demo",
     "morton_demo",
     "ad_demo",
-    "lca_demo"
+    "lca_demo",
+    "contour_demo"
   ]
 }

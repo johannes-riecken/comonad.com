@@ -1,0 +1,13 @@
+<figure class="automaton contour-demo" id="contour-figure">
+  <div class="automaton-controls">
+    <label>Shape <select data-control="shape"><option value="0" selected>hi</option><option value="1">Circle</option><option value="2">Rectangle</option><option value="3">Ring</option></select></label>
+    <label>Quadtree depth <input data-control="depth" type="number" min="2" max="6" step="1" value="5"></label>
+    <label><input data-control="field" type="checkbox" checked> Field</label>
+    <label><input data-control="quadtree" type="checkbox"> Quadtree</label>
+    <label><input data-control="squares" type="checkbox"> Marching squares</label>
+    <label><input data-control="dual" type="checkbox" checked> Dual contour</label>
+  </div>
+  <canvas data-view="canvas" width="640" height="640" role="img" aria-label="Contour of the hi shape"></canvas>
+  <figcaption><span data-view="status" role="status">Loading the Haskell example…</span> Negative samples are inside the shape. <a href="{{root}}source/TwoDContouring.hs">TwoDContouring.hs</a> · <a href="{{root}}source/ContourDemo.hs">WebAssembly module</a>.</figcaption>
+  <noscript>This figure needs JavaScript and WebAssembly. The Haskell source remains linked below.</noscript>
+</figure>

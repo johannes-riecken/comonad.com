@@ -49,5 +49,5 @@ assert.equal(document.querySelector('#archive-empty').hidden,false);
 assert.deepEqual(visibleYears(),[]);
 filter('');
 assert.equal(visibleRepos().length,repos.length,'Clearing the search restores all repositories');
-assert.equal(document.querySelectorAll('.archive-entry:not([hidden])').length,207);
+assert.equal(document.querySelectorAll('.archive-entry:not([hidden])').length,208);
 console.log(`Archive search passed: ${repos.length} repository descriptions, creation years, type filters, and no-match handling.`);

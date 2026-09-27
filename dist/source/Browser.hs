@@ -9,6 +9,7 @@ import qualified BindingDemo
 import qualified MortonDemo
 import qualified ADDemo
 import qualified LCADemo
+import qualified ContourDemo
 import DemoJSON (encode)
 import Foreign.C.String (CString, newCString)
 import Foreign.C.Types (CInt)
@@ -28,6 +29,7 @@ foreign export ccall binding_demo :: Int -> Int -> IO CString
 foreign export ccall morton_demo :: Int -> Int -> Int -> IO CString
 foreign export ccall ad_demo :: Double -> Double -> IO CString
 foreign export ccall lca_demo :: Ptr CInt -> Int -> Int -> Int -> IO CString
+foreign export ccall contour_demo :: Int -> Int -> IO CString
 
 -- Returned JSON strings are allocated with malloc; the browser frees them.
 binding_demo :: Int -> Int -> IO CString
@@ -36,6 +38,9 @@ morton_demo :: Int -> Int -> Int -> IO CString
 morton_demo x y block = newCString (encode (MortonDemo.demo x y block))
 ad_demo :: Double -> Double -> IO CString
 ad_demo x y = newCString (encode (ADDemo.demo x y))
+contour_demo :: Int -> Int -> IO CString
+contour_demo shape depth = newCString (encode (ContourDemo.demo shape depth))
+
 lca_demo :: Ptr CInt -> Int -> Int -> Int -> IO CString
 lca_demo ptr len a b
   | len < 1 || len > 64 = newCString "{\"error\":\"Tree size must be between 1 and 64.\"}"

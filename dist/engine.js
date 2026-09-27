@@ -39,6 +39,7 @@ export async function createEngine() {
     binding: (preset, spelling) => jsonResult(e.binding_demo(preset, spelling)),
     morton: (x, y, block) => jsonResult(e.morton_demo(x, y, block)),
     ad: (x, y) => jsonResult(e.ad_demo(x, y)),
+    contour: (shape, depth) => jsonResult(e.contour_demo(shape, depth)),
     lca: (parents, a, b) => {
       const bytes = new Uint8Array(parents.length * 4), view = new DataView(bytes.buffer);
       parents.forEach((p, i) => view.setInt32(i * 4, p, true));
